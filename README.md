@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-$ npm install ramdom-password-generator
+$ npm install pwd-generator
 ```
 
 ## CLI Usage
