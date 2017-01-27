@@ -25,7 +25,7 @@ const randomChar = function (charset) {
   return charset[randomNum]
 }
 
-function generateRandomPwd (program) {
+function generateRandomPwd (options) {
   const length = program.length || 15
   const chrs = charset(program)
   var pwd = ''

@@ -1,5 +1,5 @@
 {
-  "name": "pwd-generator",
+  "name": "pwd-gen",
   "version": "1.0.0",
   "description": "Command line password generator",
   "main": "index.js",

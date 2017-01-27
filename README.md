@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-$ npm install pwd-generator
+$ npm install pwd-gen
 ```
 
 ## CLI Usage
