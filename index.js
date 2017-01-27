@@ -5,8 +5,9 @@ var chars = require('./charset')
 
 const opts = function (program) {
   return {
-    specialCharacters: !program.nospecial,
-    numbers: !program.nonums,
+    specialCharacters: !program.nospecial, // undefined means true
+    numbers: !program.nonums, // undefined means true
+    charsUpper: !program.noupper, // undefined means true
     chars: true
   }
 }
@@ -38,6 +39,7 @@ function generateRandomPwd (program) {
 program
   .version('1.0.0')
   .option('-n, --nonums', 'Specify no numbers in password.')
+  .option('-u, --noupper', 'Specify no uppercase characers.')
   .option('-s, --nospecial', 'Specify no special characters in password.')
   .option('-l, --length <length>', 'Specify the length of the password, default is 15.')
 
