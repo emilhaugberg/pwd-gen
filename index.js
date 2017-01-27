@@ -38,16 +38,16 @@ function generateRandomPwd (program) {
 
 program
   .version('1.0.0')
-  .option('-n, --nonums', 'Specify no numbers in password.')
-  .option('-u, --noupper', 'Specify no uppercase characers.')
-  .option('-s, --nospecial', 'Specify no special characters in password.')
-  .option('-l, --length <length>', 'Specify the length of the password, default is 15.')
+  .option('-n, --nonums', 'password without numbers')
+  .option('-u, --noupper', 'password without uppercase characters')
+  .option('-s, --nospecial', 'password without special characters')
+  .option('-l, --length <length>', 'specify length of password (default is 15)')
 
 program.on('--help', function () {
   console.log('  Examples:')
   console.log('')
   console.log('     $ pwd-gen --length 10')
-  console.log('     $ pwd-gen --nospecial')
+  console.log('     $ pwd-gen --nonums')
   console.log('')
 })
 
