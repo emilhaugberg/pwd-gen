@@ -3,12 +3,12 @@
 var program = require('commander')
 var chars = require('./charset')
 
-const opts = function (program) {
+const opts = function (options) {
   return {
-    specialCharacters: !program.nospecial, // undefined means true
-    numbers: !program.nonums, // undefined means true
-    charsUpper: !program.noupper, // undefined means true
-    chars: true
+    specialCharacters: !options.nospecial,
+    numbers: !options.nonums,              // undefined means true
+    charsUpper: !options.noupper,          // undefined means true
+    chars: !options.nolower                // undefined means true
   }
 }
 
@@ -26,8 +26,8 @@ const randomChar = function (charset) {
 }
 
 function generateRandomPwd (options) {
-  const length = program.length || 15
-  const chrs = charset(program)
+  const length = options.length || 15
+  const chrs = charset(options)
   var pwd = ''
   while (pwd.length < length) {
     pwd += randomChar(chrs)
@@ -39,6 +39,7 @@ function generateRandomPwd (options) {
 program
   .version('1.0.0')
   .option('-n, --nonums', 'password without numbers')
+  .option('-c, --nolower', 'password without lowercase characters')
   .option('-u, --noupper', 'password without uppercase characters')
   .option('-s, --nospecial', 'password without special characters')
   .option('-l, --length <length>', 'specify length of password (default is 15)')
@@ -53,4 +54,8 @@ program.on('--help', function () {
 
 program.parse(process.argv)
 
-console.log(generateRandomPwd(program))
+if (require.main === module) {
+  console.log(generateRandomPwd(program))
+} else {
+  module.exports = generateRandomPwd
+}

@@ -6,16 +6,36 @@
 $ npm install pwd-gen
 ```
 
+## Usage
+
+```javascript
+const pwdGen = require('pwd-gen')
+const randomPwd = pwdGen(options)
+```
+
+Where you can specify which type of characters you want to exclude like this:
+
+```javascript
+{
+  specialCharacters: Bool,
+  numbers: Bool,
+  charsUpper: Bool,
+  chars: Bool,
+  length: Int
+}
+```
+
 ## CLI Usage
 
 ```bash
-Usage: pwd-gen [options]
+Usage: index [options]
 
 Options:
 
   -h, --help             output usage information
-  -V, --version          output the version numbers
+  -V, --version          output the version number
   -n, --nonums           password without numbers
+  -c, --nolower          password without lowercase characters
   -u, --noupper          password without uppercase characters
   -s, --nospecial        password without special characters
   -l, --length <length>  specify length of password (default is 15)
@@ -23,7 +43,7 @@ Options:
 Examples:
 
    $ pwd-gen --length 10
-   $ pwd-gen --nospecial
+   $ pwd-gen --nonums
 ```
 
 ## Examples
